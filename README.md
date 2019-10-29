@@ -49,9 +49,9 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
     	username: "TheBiggestFan123",
     	token: "oauth:m81v8urm9qwj6ceo0vapfmn8mepj64",
     	channels: [
-        	"FamousStreamer",
-        	"PlayerOne",
-        	"FunnyGuy"
+        		"FamousStreamer",
+        		"PlayerOne",
+        		"FunnyGuy"
     	]
 	};
     ```
