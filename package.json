@@ -1,0 +1,25 @@
+{
+  "name": "twitch-lurker-bot",
+  "version": "1.0.0",
+  "description": "A simple Twitch.tv chat lurker bot",
+  "main": "lurker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "twitch",
+    "twitch.tv",
+    "stream",
+    "broadcast",
+    "channel",
+    "chat",
+    "bot",
+    "tmi",
+    "websocket"
+  ],
+  "author": "bartosjiri",
+  "license": "ISC",
+  "dependencies": {
+    "tmi.js": "1.5.0"
+  }
+}
