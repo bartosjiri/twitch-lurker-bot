@@ -35,15 +35,15 @@ if (config.username && config.token && config.channels) {
         if (username == config.username) {
             console.log(getCurrentTime() + "Joined " + channel + ".");
         }
-    })
-    client.on("subgift", (channel, username, recipient) => {
+    });
+    client.on("subgift", (channel, username, streakMonths, recipient) => {
         if (recipient == config.username) {
             console.log(getCurrentTime() + "Received a subscription gift from user " + username + " in " + channel + "!");
         }
     });
     client.on("reconnect", () => {
         console.log(getCurrentTime() + "Trying to reconnect to the Twitch server...");
-    })
+    });
     client.on("part", (channel, username) => {
         if (username == config.username) {
             console.log(getCurrentTime() + "Disconnected from " + channel + ".");
