@@ -7,7 +7,7 @@ A simple script to join multiple Twitch.tv channels' chats as a user account.
 ### What to use it for
 
 The primary purpose of this script is to increase your account activity in channels' chat-related actions while not actually watching the stream at the given moment, for example:
-- Increase your chances of receiving a community gift sub
+- Increase your chances of receiving a community sub gift
 - Gain points in various watchtime-related point systems
 - And more...
 
@@ -43,22 +43,22 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
 
 	[https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
     
-5. Provide your account username, authentication token and list of channels to join in the config file `config.js`. Example:
-	```
+5. Provide your account username, authentication token and list of channels to join in the `config.js` config file. Example:
+		```
     module.exports = {
-    	username: "TheBiggestFan123",
-    	token: "oauth:m81v8urm9qwj6ceo0vapfmn8mepj64",
-    	channels: [
-        		"FamousStreamer",
-        		"PlayerOne",
-        		"FunnyGuy"
-    	]
-	};
+      username: "TheBiggestFan123",
+      token: "oauth:m81v8urm9qwj6ceo0vapfmn8mepj64",
+      channels: [
+        "FamousStreamer",
+        "PlayerOne",
+        "FunnyGuy"
+      ]
+    };
     ```
 
 ### Usage
 
-1. To start the script, navigate to the location of `lurker.js` and run:
+1. To start the script, navigate to the location of `lurker.js` file and run:
 
     ```
     node lurker.js
