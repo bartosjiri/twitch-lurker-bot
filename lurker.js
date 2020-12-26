@@ -29,15 +29,15 @@ if (config.username && config.token && config.channels) {
     client.connect();
 
     client.on("logon", () => {
-        console.log(getCurrentTime() + "Connected to the Twitch server as " + config.username + ".");
+        console.log(getCurrentTime() + "Connected to the Twitch server as " + config.username.toLowerCase() + ".");
     });
     client.on("join", (channel, username) => {
-        if (username == config.username) {
+        if (username == config.username.toLowerCase()) {
             console.log(getCurrentTime() + "Joined " + channel + ".");
         }
     });
     client.on("subgift", (channel, username, streakMonths, recipient) => {
-        if (recipient == config.username) {
+        if (recipient == config.username.toLowerCase()) {
             console.log(getCurrentTime() + "Received a subscription gift from user " + username + " in " + channel + "!");
         }
     });
@@ -45,7 +45,7 @@ if (config.username && config.token && config.channels) {
         console.log(getCurrentTime() + "Trying to reconnect to the Twitch server...");
     });
     client.on("part", (channel, username) => {
-        if (username == config.username) {
+        if (username == config.username.toLowerCase()) {
             console.log(getCurrentTime() + "Disconnected from " + channel + ".");
         }
     });
