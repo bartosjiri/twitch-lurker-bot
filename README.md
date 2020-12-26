@@ -1,6 +1,6 @@
 # Twitch Lurker Bot
 
-A simple script to join multiple Twitch.tv channels' chats as a user account.
+A simple script to join multiple Twitch.tv channel chats under a user account.
 
 ## Description
 
@@ -13,11 +13,11 @@ The primary purpose of this script is to increase your account activity in chann
 
 ### What to keep in mind
 
-Even though the script allows you to join a large number of channels, please, consider using it only for channels you would spend your time in nonetheless. Running the script presents you an advantage compared to other regular users, so use it only for channels you actively support and watch.
+Even though the script allows you to join a large number of channels, please, consider using it only for channels you would spend your time in nonetheless. Running the script presents you an advantage compared to other regular users, so use it only for channels you actively support and watch. Always be sure to follow Twitch.tv's [Terms of Service](https://www.twitch.tv/p/legal/terms-of-service/).
 
 ### How it works
 
-The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js package for the Twitch Messaging Interface. Once you provide an authorization token to your account and a list of channels, the script joins chat rooms for these channels with your account. It does not connect to the actual stream and therefore it does not count towards the viewer count - usage of this script cannot be qualified as viewer botting.
+The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js package for the Twitch Messaging Interface. Once you provide an authorization token to your account and a list of channels, the script joins chat rooms for these channels with your account. It does not connect to the actual stream and therefore it does not count towards the viewer count - usage of this script is not viewer botting.
 
 ## Instructions
 
@@ -43,7 +43,7 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
 
 	[https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
     
-5. Provide your account username, authentication token and list of channels to join in the `config.js` config file. Example:
+5. Copy the `config.example.js` file as `config.js` and provide your account username, authentication token and list of channels to join. For example:
 	```
     module.exports = {
       username: "TheBiggestFan123",
@@ -69,4 +69,4 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
 
 ## Disclaimer
 
-Use the script at your own risk, the repository owners and/or contributors are not responsible for any actions taken as a result of installing, setting up or running this script. Never show your authentication token to other people or store it at publicly available locations. Always be sure to follow Twitch.tv's [Terms of Service](https://www.twitch.tv/p/legal/terms-of-service/).
+Use the script at your own risk, the repository owners and/or contributors are not responsible for any actions taken as a result of installing, setting up or running this script. Never share your authentication token with other people or store it at publicly available locations. Always be sure to follow Twitch.tv's [Terms of Service](https://www.twitch.tv/p/legal/terms-of-service/).

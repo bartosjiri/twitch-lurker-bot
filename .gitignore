@@ -1,2 +1,8 @@
-node_modules
+# Dependency directories
+node_modules/
+
+# Private configuration
+config.js
+
+# Other
 .directory
