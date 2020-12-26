@@ -1,57 +1,72 @@
-var tmi = require("tmi.js");
-var config = require("./config");
+const tmi = require("tmi.js");
+const dateFormat = require("dateformat");
+const config = require("./config");
 
-if (config.username && config.token && config.channels) {
-    var channels = [];
-    for (i = 0; i < config.channels.length; i++) {
-        channels.push("#" + config.channels[i]);
-    };
+const {username, token, channels} = config
 
-    var options = {
-        connection: {
-            reconnect: true,
-            secure: true
-        },
-        identity: {
-            username: config.username,
-            password: config.token
-        },
-        channels: channels
-    };
+if (!username) {
+    console.error("[ERROR] You need to provide a username!");
+    return;
+}
 
-    const getCurrentTime = () => {
-        var currentDate = new Date();
-        var dateTime = "[" + currentDate.getFullYear() + "-" + (("0" + (currentDate.getMonth() + 1)).slice(-2)) + "-" + (("0" + currentDate.getDate()).slice(-2)) + " " + (("0" + currentDate.getHours()).slice(-2)) + ":" + (("0" + currentDate.getMinutes()).slice(-2)) + ":" + (("0" + currentDate.getSeconds()).slice(-2)) + "] ";
-        return dateTime;
-    };
-    
-    var client = new tmi.client(options);
-    client.connect();
+if (!token) {
+    console.error("[ERROR] You need to provide a client token!");
+    return;
+}
 
-    client.on("logon", () => {
-        console.log(getCurrentTime() + "Connected to the Twitch server as " + config.username.toLowerCase() + ".");
-    });
-    client.on("join", (channel, username) => {
-        if (username == config.username.toLowerCase()) {
-            console.log(getCurrentTime() + "Joined " + channel + ".");
-        }
-    });
-    client.on("subgift", (channel, username, streakMonths, recipient) => {
-        if (recipient == config.username.toLowerCase()) {
-            console.log(getCurrentTime() + "Received a subscription gift from user " + username + " in " + channel + "!");
-        }
-    });
-    client.on("reconnect", () => {
-        console.log(getCurrentTime() + "Trying to reconnect to the Twitch server...");
-    });
-    client.on("part", (channel, username) => {
-        if (username == config.username.toLowerCase()) {
-            console.log(getCurrentTime() + "Disconnected from " + channel + ".");
-        }
-    });
-    client.on("disconnected", (reason) => {
-        console.log(getCurrentTime() + "Disconnected from the Twitch server. Reason: " + reason + ".");
-    });
-} else {
-    console.error("You need to fill out all fields in the config file.");
-};
+if (!channels || channels.length < 1) {
+    console.error("[ERROR] You need to provide at least one channel!");
+    return;
+}
+
+const user = username.toLowerCase();
+
+const tmiOptions = {
+    connection: {
+        reconnect: true,
+        secure: true
+    },
+    identity: {
+        username: user,
+        password: token
+    },
+    channels: channels
+}
+
+const getCurrentTime = () => {
+    const d = new Date();
+    return `[${dateFormat(d, "yyyy-mm-dd HH:MM:ss")}]`;
+}
+
+const client = new tmi.client(tmiOptions);
+client.connect();
+
+client.on("logon", () => {
+    console.log(`${getCurrentTime()} Connecting to the Twitch server as user "${user}"...`);
+});
+
+client.on("join", (channel, username) => {
+    if (username == user) {
+        console.log(`${getCurrentTime()} Joined channel "${channel.substring(1)}".`);
+    }
+});
+
+client.on("subgift", (channel, username, _, recipient) => {
+    if (recipient == user) {
+        console.log(`${getCurrentTime()} Received a subscription gift from user "${username}" in channel "${channel.substring(1)}"!`);
+    }
+});
+
+client.on("reconnect", () => {
+    console.log(`${getCurrentTime()} Trying to reconnect to the Twitch server...`);
+});
+
+client.on("part", (channel, username) => {
+    if (username == user) {
+        console.log(`${getCurrentTime()} Disconnected from channel "${channel.substring(1)}".`);
+    }
+});
+
+client.on("disconnected", (reason) => {
+    console.log(`${getCurrentTime()} Disconnected from the Twitch server. Reason: "${reason}".`);
+});
