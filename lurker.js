@@ -52,7 +52,7 @@ client.on("join", (channel, username) => {
 });
 
 client.on("subgift", (channel, username, _, recipient) => {
-    if (recipient == user) {
+    if (recipient.toLowerCase() == user) {
         console.log(`${getCurrentTime()} Received a subscription gift from user "${username}" in channel "${channel.substring(1)}"!`);
     }
 });
