@@ -1,8 +1,9 @@
-version: '3.4'
+version: "3.7"
+
 services:
   lurker:
     build:
       context: "."
     restart: unless-stopped
     volumes:
-    - ./config.js:/root/app/config.js
+      - "./config.js:/usr/src/app/config.js:ro"

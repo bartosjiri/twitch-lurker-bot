@@ -7,6 +7,7 @@ A simple script to join multiple Twitch.tv channel chats under a user account.
 ### What to use it for
 
 The primary purpose of this script is to increase your account activity in channels' chat-related actions while not actually watching the stream at the given moment, for example:
+
 - Increase your chances of receiving a community sub gift
 - Gain points in various watchtime-related point systems
 - And more...
@@ -21,14 +22,18 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
 
 ## Instructions
 
-### Installation and usage with Docker and Docker Compose
+### Usage with Docker/Docker Compose
 
-1. Install Docker and Docker Compose, if you don't have them already
+1. Install Docker and Docker Compose:
+
+   [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+
 2. Clone or download the Twich Lurker Bot script to your desired location:
 
    ```
    git clone git@github.com:bartosjiri/twitch-lurker-bot.git
    ```
+
 3. Obtain the authentication token for your Twitch.tv account:
 
    [https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
@@ -45,53 +50,58 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
      ]
    };
    ```
-5. Fire it up with `docker-compose up -d`
+5. Start up the service:
+   ```
+   docker-compose up --build -d
+   ```
+6. See the service logs:
+   ```
+   docker-compose logs -f
+   ```
 
-
-### Installation (No Docker)
+### Usage with Node.js
 
 1. Download and install Node.js on your machine:
 
-	[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+   [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 2. Clone or download the Twich Lurker Bot script to your desired location:
 
-	```
-    git clone git@github.com:bartosjiri/twitch-lurker-bot.git
-    ```
-    
+   ```
+   git clone git@github.com:bartosjiri/twitch-lurker-bot.git
+   ```
+
 3. Install the script dependencies:
 
-	```
-    npm install
-    ```
-    
+   ```
+   npm install
+   ```
+
 4. Obtain the authentication token for your Twitch.tv account:
 
-	[https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
-    
+   [https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
+
 5. Copy the `config.example.js` file as `config.js` and provide your account username, authentication token and list of channels to join. For example:
-	```
-    module.exports = {
-      username: "TheBiggestFan123",
-      token: "oauth:m81v8urm9qwj6ceo0vapfmn8mepj64",
-      channels: [
-        "FamousStreamer",
-        "PlayerOne",
-        "FunnyGuy"
-      ]
-    };
-    ```
 
-### Usage
+   ```
+   module.exports = {
+     username: "TheBiggestFan123",
+     token: "oauth:m81v8urm9qwj6ceo0vapfmn8mepj64",
+     channels: [
+       "FamousStreamer",
+       "PlayerOne",
+       "FunnyGuy"
+     ]
+   };
+   ```
 
-1. To start the script, navigate to the location of `lurker.js` file and run:
+6. To start the script, navigate to the location of `lurker.js` file and run:
 
-    ```
-    node lurker.js
-    ```
-    
-    *Tip: If you don't want to keep your terminal window open while running the script, you can try running the script in a [detached process](https://www.google.com/search?q=how+to+detach+a+process).*
+   ```
+   node lurker.js
+   ```
+
+   _Tip: If you don't want to keep your terminal window open while running the script, you can try running the script in a [detached process](https://www.google.com/search?q=how+to+detach+a+process)._
 
 ## Disclaimer
 

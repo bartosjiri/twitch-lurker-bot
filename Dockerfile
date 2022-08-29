@@ -1,7 +1,8 @@
 FROM node:lts-alpine
-# Create app directory
-WORKDIR /root/app
+
+WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-CMD [ "node", "lurker.js" ]
+
+CMD ["node", "lurker.js"]
