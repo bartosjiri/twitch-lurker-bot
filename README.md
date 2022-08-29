@@ -21,7 +21,34 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
 
 ## Instructions
 
-### Installation
+### Installation and usage with Docker and Docker Compose
+
+1. Install Docker and Docker Compose, if you don't have them already
+2. Clone or download the Twich Lurker Bot script to your desired location:
+
+   ```
+   git clone git@github.com:bartosjiri/twitch-lurker-bot.git
+   ```
+3. Obtain the authentication token for your Twitch.tv account:
+
+   [https://twitchapps.com/tmi/](https://twitchapps.com/tmi/)
+
+4. Copy the `config.example.js` file as `config.js` and provide your account username, authentication token and list of channels to join. For example:
+   ```
+   module.exports = {
+     username: "TheBiggestFan123",
+     token: "oauth:m81v8urm9qwj6ceo0vapfmn8mepj64",
+     channels: [
+       "FamousStreamer",
+       "PlayerOne",
+       "FunnyGuy"
+     ]
+   };
+   ```
+5. Fire it up with `docker-compose up -d`
+
+
+### Installation (No Docker)
 
 1. Download and install Node.js on your machine:
 
@@ -65,7 +92,6 @@ The script is based on [tmi.js](https://github.com/tmijs/tmi.js), a Node.js pack
     ```
     
     *Tip: If you don't want to keep your terminal window open while running the script, you can try running the script in a [detached process](https://www.google.com/search?q=how+to+detach+a+process).*
-
 
 ## Disclaimer
 
