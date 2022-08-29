@@ -1,7 +1,8 @@
 version: '3.4'
 services:
   lurker:
-    image: ghcr.io/nfacha/twitch-lurker-bot:master
+    build:
+      context: "."
     restart: unless-stopped
     volumes:
     - ./config.js:/root/app/config.js

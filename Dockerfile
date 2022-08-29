@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:lts-alpine
 # Create app directory
 WORKDIR /root/app
 COPY package*.json ./
