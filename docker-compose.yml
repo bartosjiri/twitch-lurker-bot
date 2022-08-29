@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  lurker:
+    build:
+      context: "."
+    restart: unless-stopped
+    volumes:
+      - "./config.js:/usr/src/app/config.js:ro"
