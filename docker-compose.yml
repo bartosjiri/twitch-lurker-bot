@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+  lurker:
+    build:
+      context: "."
+    restart: unless-stopped
+    volumes:
+    - ./config.js:/root/app/config.js
