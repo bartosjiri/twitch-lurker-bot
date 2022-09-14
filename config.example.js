@@ -6,4 +6,4 @@ module.exports = {
         "<CHANNEL-2>",
         "<CHANNEL-3>"
     ]
-}
+};
